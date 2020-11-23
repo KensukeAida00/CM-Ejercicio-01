@@ -123,18 +123,7 @@ func becarios(alumnes:[alumno])->[alumno]{
   return alumnes2
 }
 var alumnes: [alumno]=[]
-//alumnes=intome()
-alumnes.append(alumno(n:"Roberto",e:15,p:9.5,b:true))
-alumnes.append(alumno(n:"Kenia",e:19,p:10.0,b:true))
-alumnes.append(alumno(n:"Katia",e:24,p:7.5,b:false))
-alumnes.append(alumno(n:"Andrea",e:22,p:10.0,b:true))
-alumnes.append(alumno(n:"Gonzalo",e:24,p:6.0,b:false))
-alumnes.append(alumno(n:"Diego",e:26,p:6.0,b:true))
-alumnes.append(alumno(n:"Ricardo",e:21,p:8.9,b:false))
-alumnes.append(alumno(n:"Sebastian",e:19,p:7.6,b:false))
-alumnes.append(alumno(n:"Kevin",e:18,p:6.1,b:true))
-alumnes.append(alumno(n:"Ernesto",e:24,p:7.4,b:false))
-alumnes.append(alumno(n:"Sandra",e:22,p:6.6,b:true))
+alumnes=intome()
 print("Alumnos ingresados")
 printAll(alumnes:alumnes)
 print("Ordenando Alfabeticamente")
