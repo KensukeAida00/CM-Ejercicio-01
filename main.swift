@@ -1,8 +1,8 @@
 struct alumno{
-	var n: String
-	var e: Int
-  var p: Double
-  var b: Bool
+	let n: String
+	let e: Int
+  let p: Double
+  let b: Bool
 }
 func conAlumno(i:Int)->(String,Int,Double,Bool){
   print("Introduce el alumno",i)
