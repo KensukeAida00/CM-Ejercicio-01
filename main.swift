@@ -26,13 +26,13 @@ struct alumno{
     Bool: ¿Es becario?*/
 func conAlumno(i:Int)->(String,Int,Double,Bool){
   print("Introduce el alumno",i)
-  print("Introduce el nombre")
+  print("Nombre:")
   let n=readLine()!
-  print("Introduce la edad")
+  print("Edad")
   let e=readLine()!
-  print("Introduce el promedio")
+  print("Promedio")
   let p=readLine()!
-  print("¿Tiene beca? [si=y/no=otro]")
+  print("¿Beca? [si=y/no=otro]")
   var b=false
   if let d=readLine(){
     if d == "y"{
