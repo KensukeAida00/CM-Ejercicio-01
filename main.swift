@@ -122,18 +122,21 @@ func becarios(alumnes:[alumno])->[alumno]{
   }
   return alumnes2
 }
-var alumnes: [alumno]=[]
-alumnes=intome()
-print("Alumnos ingresados")
-printAll(alumnes:alumnes)
-print("Ordenando Alfabeticamente")
-alumnes=alfabetico(alumnes:alumnes)
-printAll(alumnes:alumnes)
-print("Alumno(s) con promedio alto")
-let (alumnesPBajo,alumnesPAlto)=promedios(alumnes:alumnes)
-printAll(alumnes:alumnesPAlto)
-print("Alumno(s) con promedio bajo")
-printAll(alumnes:alumnesPBajo)
-print("Alumno(s) con beca")
-let alumnesBeca=becarios(alumnes:alumnes)
-printAll(alumnes:alumnesBeca)
+func main(){
+  var alumnes: [alumno]=[]
+  alumnes=intome()
+  print("Alumnos ingresados")
+  printAll(alumnes:alumnes)
+  print("Ordenando Alfabeticamente")
+  alumnes=alfabetico(alumnes:alumnes)
+  printAll(alumnes:alumnes)
+  print("Alumno(s) con promedio alto")
+  let (alumnesPBajo,alumnesPAlto)=promedios (alumnes:alumnes)
+  printAll(alumnes:alumnesPAlto)
+  print("Alumno(s) con promedio bajo")
+  printAll(alumnes:alumnesPBajo)
+  print("Alumno(s) con beca")
+  let alumnesBeca=becarios(alumnes:alumnes)
+  printAll(alumnes:alumnesBeca)
+}
+main()
