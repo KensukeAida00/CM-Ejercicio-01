@@ -1,9 +1,29 @@
+//Creado por Aquino Santiago Rogelio Gerardo
+//Para la clase de Computo movil
+//Fecha: 28/11/2020
+
+/*
+  Estructura Alumno la cual guardara el nombre, edad, promedio y si es becario o no.
+  Datos
+    n: Nombre del alumno
+    e: Edad del alumno
+    p: Promedio del alumno
+    b: ¿Es becario?*/
 struct alumno{
 	let n: String
 	let e: Int
   let p: Double
   let b: Bool
 }
+/*
+  Función que recibirá el numero de alumno que se trata, e internamente, escaneará los datos que el usuario necesite, además de convertir las cadenas en los datos necesarios, para devolverlo.
+  Ingresa
+    i:Numero de alumno
+  Devuelve
+    String:Nombre del Alumno
+    Int: Edad del alumno
+    Double: Promedio del alumno
+    Bool: ¿Es becario?*/
 func conAlumno(i:Int)->(String,Int,Double,Bool){
   print("Introduce el alumno",i)
   print("Introduce el nombre")
@@ -20,6 +40,10 @@ func conAlumno(i:Int)->(String,Int,Double,Bool){
     }
   return (n,Int(e)!,Double(p)!,b)
 }
+/*
+  Función que imprimirá adecuadamente los alumnos dentro de la lista que solicita la función.
+  Ingresa
+    alumnes: Lista de alumnos*/
 func printAll(alumnes:[alumno]){
   var i:Int=0
   let larg:Int=(alumnes.count)
@@ -33,6 +57,10 @@ func printAll(alumnes:[alumno]){
     i=i+1
   }
 }
+/*
+  Función que se encargara de recibir en loop la información recibida desde conAlumno para convertir los datos a Alumnos, además de verificar si los datos son buenos o no, en caso contrario, se borraran los datos y se reiniciara el conteo al anterior, se para hasta que el usuario ingrese al último deseado.
+  Devuelve
+    [alumno]: Lista de alumnos conforme fue ingresado*/
 func intome() -> [alumno]{
   var alumnes: [alumno]=[]
   var i: Int=1
@@ -58,6 +86,14 @@ func intome() -> [alumno]{
   }
   return alumnes
 }
+/*
+  Función que reordenara los alumnos con base a la lista String reordenada, creara una lista de Alumnos temporal para que se inserten con forme a la lista String, devolviendo la lista Alumnos ya ordenada.
+  Ingresa
+    alumnes: Lista de alumnos a reordenar
+    temp: Lista de los nombres ya ordenados
+    larg: Tamaño de la lista
+  Devuelve
+    [alumno]: Lista de alumnos ya ordenados*/
 func reNombres(alumnes:[alumno],temp:[String],larg: Int)->[alumno]{
   var i: Int=0
   var j: Int=0
@@ -76,6 +112,12 @@ func reNombres(alumnes:[alumno],temp:[String],larg: Int)->[alumno]{
   }
   return alumnes2
 }
+/*
+  Función que se encargara de obtener los nombres de la lista Alumno en una lista String, ordenar la lista String y llamar a la función reNombres para retornar la lista Alumno ya ordenada.
+  Ingresa
+    alumnes: Lista de alumnos a reordenar
+  Devuelve
+    [alumno]: Lista de alumnos ya ordenado alfabeticamente*/
 func alfabetico(alumnes:[alumno])->[alumno]{
     var i: Int=0
     let larg: Int=alumnes.count
@@ -87,6 +129,14 @@ func alfabetico(alumnes:[alumno])->[alumno]{
     let temp1=temp.sorted()
     return reNombres(alumnes:alumnes,temp:temp1,larg:larg)
 }
+/*
+  Función que, dependiendo del extremo que se ingreso en los parámetros, retornara una lista Alumno con el promedio solicitado.
+  Ingresa
+    alumnes: Lista de alumnos
+    ext: Promedio solicitado
+    larg: Largo de la lista
+  Devuelve
+  [alumno]: lista de alumnos del promedio solicitado*/
 func pExtremos(alumnes:[alumno],ext:Double,larg: Int)->[alumno]{
   var j: Int=0
   var alumnes2: [alumno]=[]
@@ -98,6 +148,13 @@ func pExtremos(alumnes:[alumno],ext:Double,larg: Int)->[alumno]{
   }
   return alumnes2
 }
+/*
+  Función que se encargara de obtener las calificaciones de la lista Alumno en una lista Double, ordenar la lista Double y llamar a la función pExtremos para retornar dos listas, la de alto promedio y la de bajo promedio.
+  Ingresa
+    alumnes: Lista de alumnos
+  Devuelve
+    [alumno]: Alumno con el promedio mas bajo
+    [alumno]: Alumno con el promedio mas alto*/
 func promedios(alumnes:[alumno])->([alumno],[alumno]){
   var i: Int=0
   let larg: Int=alumnes.count
@@ -107,9 +164,16 @@ func promedios(alumnes:[alumno])->([alumno],[alumno]){
     i=i+1
   }
   let temp1=temp.sorted()
-  return (pExtremos(alumnes:alumnes,ext:temp1[0],larg:larg),
-          pExtremos(alumnes:alumnes,ext:temp1[i-1],larg:larg))
+  return 
+    (pExtremos(alumnes:alumnes,ext:temp1[0],larg:larg),
+    pExtremos(alumnes:alumnes,ext:temp1[i-1],larg:larg))
 }
+/*
+  Función que se encargara de verificar si el alumno es becario (true) o no (false)
+  Ingresa
+    alumnes: Lista de alumnos
+  Devuelve
+    [alumno]: Lista de alumnos con beca*/
 func becarios(alumnes:[alumno])->[alumno]{
   var j: Int=0
   var alumnes2: [alumno]=[]
@@ -122,6 +186,7 @@ func becarios(alumnes:[alumno])->[alumno]{
   }
   return alumnes2
 }
+/*Funcion principal del programa que llamara a las funciones correspondiente*/
 func main(){
   var alumnes: [alumno]=[]
   alumnes=intome()
